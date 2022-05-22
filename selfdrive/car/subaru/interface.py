@@ -119,7 +119,7 @@ class CarInterface(CarInterfaceBase):
 
     if candidate == CAR.LEGACY_PREGLOBAL:
       ret.mass = 1568 + STD_CARGO_KG
-      ret.wheelbase = 2.67
+      ret.wheelbase = 2.75
       ret.centerToFront = ret.wheelbase * 0.5
       ret.steerRatio = 12.5   # 14.5 stock
       ret.steerActuatorDelay = 0.15
@@ -129,8 +129,8 @@ class CarInterface(CarInterfaceBase):
 
     if candidate == CAR.LEGACY_PREGLOBAL_2018:
       ret.safetyConfigs[0].safetyParam = 1  # Legacy 2018-2019 has reversed driver torque signal
-      ret.mass = 1568 + STD_CARGO_KG
-      ret.wheelbase = 2.67
+      ret.mass = 1590 + STD_CARGO_KG
+      ret.wheelbase = 2.75
       ret.centerToFront = ret.wheelbase * 0.5
       ret.steerRatio = 12.5   # 14.5 stock
       ret.steerActuatorDelay = 0.15
