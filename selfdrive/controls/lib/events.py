@@ -392,8 +392,16 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
   # This alert is thrown when any of these values exceed a sanity check. This can be caused by
   # bad alignment or bad sensor data. If this happens consistently consider creating an issue on GitHub
   EventName.vehicleModelInvalid: {
-    ET.NO_ENTRY: NoEntryAlert("Vehicle Parameter Identification Failed"),
-    ET.SOFT_DISABLE: soft_disable_alert("Vehicle Parameter Identification Failed"),
+    #ET.NO_ENTRY: NoEntryAlert("Vehicle Parameter Identification Failed"),
+    #ET.SOFT_DISABLE: soft_disable_alert("Vehicle Parameter Identification Failed"),
+    
+    # Temporarily change this to a warning, to ease debugging during two-person tuning
+    # WARNING: THIS IS NOT PRODUCTION-READY OR SAFETY-TESTED. ONLY USE ON CLOSED COURSES WITH NECESSARY SAFETY PRECAUTIONS
+    ET.WARNING: Alert(
+    "Vehicle Parameter Identification Failed",
+    "",
+    AlertStatus.normal, AlertSize.mid,
+    Priority.MID, VisualAlert.steerRequired, AudibleAlert.prompt, .1),
   },
 
   EventName.steerTempUnavailableSilent: {
